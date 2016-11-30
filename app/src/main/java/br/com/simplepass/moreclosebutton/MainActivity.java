@@ -10,16 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import br.com.simplepass.buttonlib.MoreCloseButton;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnMoreClose;
+    private MoreCloseButton btnMoreClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnMoreClose = (Button) findViewById(R.id.btn_more_close);
+        btnMoreClose = (MoreCloseButton) findViewById(R.id.btn_more_close);
         btnMoreClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private void morthToCloseButton(){
         Log.d("Log", "passou aqui");
 
-        ObjectAnimator cornerAnimation =
+        btnMoreClose.morthToCloseButton();
+
+        /*ObjectAnimator cornerAnimation =
                 ObjectAnimator.ofFloat(btnMoreClose,
                         "cornerRadius",
                         100f,
@@ -61,6 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(cornerAnimation, widthAnimation, heightAnimation);
-        animatorSet.start();
+        animatorSet.start();*/
     }
 }
