@@ -46,8 +46,7 @@ For bugs, feature requests, and discussion please use [GitHub Issues](https://gi
 ## Credits
 
 
-
-This lib was based on this [article](https://engineering.canva.com/2016/05/16/five-visual-effects/)
+This lib was based on this [article](https://engineering.canva.com/2016/05/16/five-visual-effects/) by CHRIS DOBLE
 
 
 ## License
@@ -63,3 +62,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 > Written with [StackEdit](https://stackedit.io/).
+
