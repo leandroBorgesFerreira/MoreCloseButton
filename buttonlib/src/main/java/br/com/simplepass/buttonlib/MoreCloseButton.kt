@@ -20,6 +20,11 @@ import android.widget.ImageButton
 class MoreCloseButton : ImageButton {
     private var mGradientDrawable: GradientDrawable? = null
 
+    private var defaultState = true
+
+    private var initialWidth: Int? = null
+    private var initialHeight: Int? = null
+
     constructor(context: Context) : super(context) {
     }
 
@@ -72,12 +77,61 @@ class MoreCloseButton : ImageButton {
         background = mGradientDrawable
     }
 
-    private fun setupAnimations(){
+    fun morthToMoreButton(){
+        if(defaultState){
+            return
+        }
 
+        defaultState = true
+
+        mGradientDrawable?.setStroke(9, Color.BLACK, 22f, 10f)
+        background = mGradientDrawable
+
+        val rotateAnimation = ValueAnimator.ofFloat(0f, -90f)
+        rotateAnimation.addUpdateListener { valueAnimator ->
+            val value = valueAnimator.animatedValue as Float
+            rotation = value
+        }
+
+        val cornerAnimation = ObjectAnimator.ofFloat(mGradientDrawable,
+                "cornerRadius",
+                2000f,
+                10f)
+
+        val widthAnimation = ValueAnimator.ofInt(width, initialWidth!!)
+        widthAnimation.addUpdateListener { valueAnimator ->
+            val value = valueAnimator.animatedValue as Int
+            val layoutParams = layoutParams
+            layoutParams.width = value
+            setLayoutParams(layoutParams)
+        }
+
+        val heightAnimation = ValueAnimator.ofInt(height, initialHeight!!)
+        heightAnimation.addUpdateListener { valueAnimator ->
+            val value = valueAnimator.animatedValue as Int
+            val layoutParams = layoutParams
+            layoutParams.height = value
+            setLayoutParams(layoutParams)
+        }
+
+        val animatorSet = AnimatorSet()
+        animatorSet.duration = 500
+        animatorSet.playTogether(rotateAnimation, cornerAnimation, widthAnimation, heightAnimation)
+        animatorSet.interpolator = AccelerateDecelerateInterpolator()
+        animatorSet.start()
     }
 
-    fun morthToCloseButton() {
-        mGradientDrawable?.setStroke(7, Color.BLACK)
+    fun morthToCloseButton(){
+        if(!defaultState){
+            return
+        }
+
+        defaultState = false
+
+        initialWidth = width
+        initialHeight = height
+
+        mGradientDrawable?.setStroke(9, Color.BLACK)
         background = mGradientDrawable
 
         val rotateAnimation = ValueAnimator.ofFloat(0f, 135f)

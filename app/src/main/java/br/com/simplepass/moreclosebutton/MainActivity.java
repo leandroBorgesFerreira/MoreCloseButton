@@ -18,10 +18,14 @@ public class MainActivity extends AppCompatActivity {
 
     private MoreCloseButton btnMoreClose;
 
+    private Boolean pressed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pressed = false;
 
         btnMoreClose = (MoreCloseButton) findViewById(R.id.btn_more_close);
         btnMoreClose.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void morthToCloseButton(){
-        btnMoreClose.morthToCloseButton();
+
+        if(pressed) {
+            pressed = false;
+            btnMoreClose.morthToMoreButton();
+        } else{
+            pressed = true;
+            btnMoreClose.morthToCloseButton();
+        }
     }
 }
