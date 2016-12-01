@@ -5,25 +5,20 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.annotation.TargetApi
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
-import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.util.AttributeSet
-import android.util.Log
-import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.RotateAnimation
-import android.widget.Button
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageButton
 
 /**
  * Created by hinovamobile on 30/11/16.
  */
-class MoreCloseButton : Button {
+class MoreCloseButton : ImageButton {
     private var mGradientDrawable: GradientDrawable? = null
-
 
     constructor(context: Context) : super(context) {
     }
@@ -70,25 +65,33 @@ class MoreCloseButton : Button {
                 }
             }
 
+
             typedArrayBG.recycle()
         }
 
         background = mGradientDrawable
     }
 
+    private fun setupAnimations(){
+
+    }
+
     fun morthToCloseButton() {
-        Log.d("Log", "passou aqui")
+        mGradientDrawable?.setStroke(7, Color.BLACK)
+        background = mGradientDrawable
 
-        val rotateAnim = AnimationUtils.loadAnimation(context, R.anim.rotate_forward)
-        rotateAnim.duration = 300
-
+        val rotateAnimation = ValueAnimator.ofFloat(0f, 135f)
+        rotateAnimation.addUpdateListener { valueAnimator ->
+            val value = valueAnimator.animatedValue as Float
+            rotation = value
+        }
 
         val cornerAnimation = ObjectAnimator.ofFloat(mGradientDrawable,
                 "cornerRadius",
                 0f,
-                100f)
+                2000f)
 
-        val widthAnimation = ValueAnimator.ofInt(width, 300)
+        val widthAnimation = ValueAnimator.ofInt(width, 180)
         widthAnimation.addUpdateListener { valueAnimator ->
             val value = valueAnimator.animatedValue as Int
             val layoutParams = layoutParams
@@ -96,7 +99,7 @@ class MoreCloseButton : Button {
             setLayoutParams(layoutParams)
         }
 
-        val heightAnimation = ValueAnimator.ofInt(height, 300)
+        val heightAnimation = ValueAnimator.ofInt(height, 180)
         heightAnimation.addUpdateListener { valueAnimator ->
             val value = valueAnimator.animatedValue as Int
             val layoutParams = layoutParams
@@ -105,10 +108,10 @@ class MoreCloseButton : Button {
         }
 
         val animatorSet = AnimatorSet()
-        animatorSet.duration = 300
-        animatorSet.playTogether(cornerAnimation, widthAnimation, heightAnimation)
-        //animatorSet.start()
-        startAnimation(rotateAnim)
+        animatorSet.duration = 500
+        animatorSet.playTogether(rotateAnimation, cornerAnimation, widthAnimation, heightAnimation)
+        animatorSet.interpolator = AccelerateDecelerateInterpolator()
+        animatorSet.start()
     }
 
 

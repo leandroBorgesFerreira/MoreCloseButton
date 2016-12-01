@@ -1,5 +1,6 @@
 package br.com.simplepass.moreclosebutton;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 
 import br.com.simplepass.buttonlib.MoreCloseButton;
@@ -31,40 +33,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void morthToCloseButton(){
-        Log.d("Log", "passou aqui");
-
         btnMoreClose.morthToCloseButton();
-
-        /*ObjectAnimator cornerAnimation =
-                ObjectAnimator.ofFloat(btnMoreClose,
-                        "cornerRadius",
-                        100f,
-                        0f);
-
-        ValueAnimator widthAnimation = ValueAnimator.ofInt(btnMoreClose.getWidth(), 200);
-        widthAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int val = (Integer) valueAnimator.getAnimatedValue();
-                ViewGroup.LayoutParams layoutParams = btnMoreClose.getLayoutParams();
-                layoutParams.width = val;
-                btnMoreClose.setLayoutParams(layoutParams);
-            }
-        });
-
-        ValueAnimator heightAnimation = ValueAnimator.ofInt(btnMoreClose.getHeight(), 200);
-        heightAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int val = (Integer) valueAnimator.getAnimatedValue();
-                ViewGroup.LayoutParams layoutParams = btnMoreClose.getLayoutParams();
-                layoutParams.height = val;
-                btnMoreClose.setLayoutParams(layoutParams);
-            }
-        });
-
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(cornerAnimation, widthAnimation, heightAnimation);
-        animatorSet.start();*/
     }
 }
