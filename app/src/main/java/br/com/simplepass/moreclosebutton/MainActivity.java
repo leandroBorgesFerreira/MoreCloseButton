@@ -1,6 +1,7 @@
 package br.com.simplepass.moreclosebutton;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -37,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void morthToCloseButton(){
+
+        AnimatorSet animatorSet = new AnimatorSet();
+
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+            }
+        });
 
         if(pressed) {
             pressed = false;

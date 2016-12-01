@@ -1,8 +1,6 @@
 package br.com.simplepass.buttonlib
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
+import android.animation.*
 import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Color
@@ -74,6 +72,7 @@ class MoreCloseButton : ImageButton {
             typedArrayBG.recycle()
         }
 
+        setImageResource(R.mipmap.ic_add)
         background = mGradientDrawable
     }
 
@@ -83,9 +82,6 @@ class MoreCloseButton : ImageButton {
         }
 
         defaultState = true
-
-        mGradientDrawable?.setStroke(9, Color.BLACK, 22f, 10f)
-        background = mGradientDrawable
 
         val rotateAnimation = ValueAnimator.ofFloat(0f, -90f)
         rotateAnimation.addUpdateListener { valueAnimator ->
@@ -118,6 +114,15 @@ class MoreCloseButton : ImageButton {
         animatorSet.duration = 500
         animatorSet.playTogether(rotateAnimation, cornerAnimation, widthAnimation, heightAnimation)
         animatorSet.interpolator = AccelerateDecelerateInterpolator()
+
+        animatorSet.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                super.onAnimationEnd(animation)
+
+                mGradientDrawable?.setStroke(9, Color.BLACK, 22f, 10f)
+            }
+        })
+
         animatorSet.start()
     }
 

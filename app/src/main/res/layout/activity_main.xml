@@ -7,8 +7,6 @@
 
     <br.com.simplepass.buttonlib.MoreCloseButton
         android:id="@+id/btn_more_close"
-        android:src="@mipmap/ic_add"
-        android:textSize="30sp"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@drawable/button_shape"
