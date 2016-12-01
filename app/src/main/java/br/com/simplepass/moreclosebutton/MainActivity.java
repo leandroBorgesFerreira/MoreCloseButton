@@ -38,16 +38,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void morthToCloseButton(){
-
-        AnimatorSet animatorSet = new AnimatorSet();
-
-        animatorSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-            }
-        });
-
         if(pressed) {
             pressed = false;
             btnMoreClose.morthToMoreButton();
