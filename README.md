@@ -3,7 +3,8 @@
 
 Custom button with morph animation.
 
-![enter image description here](https://lh3.googleusercontent.com/-Z1T1rScip38/WEBHpg2vf8I/AAAAAAAAKwU/04rzhfdxr88Wi9AYVzVsEQfrV_XBP7vuACLcB/s400/MoreCloseButtonGif.gif "MoreCloseButtonGif.gif")
+![enter image description here](https://lh3.googleusercontent.com/-3uhI_gNEsww/WENKtvr9U8I/AAAAAAAAK2c/fZRhgkAhzvAfDduWBf2lErObK9JgwWpVQCLcB/s400/moreclose2.gif "moreclose2.gif")
+
 
 ##Usage
 
