@@ -15,7 +15,7 @@ ext {
     siteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
     gitUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
 
-    libraryVersion = '0.9.0'
+    libraryVersion = '0.9.1'
 
     developerId = 'leandroBorgesFerreira'
     developerName = 'Leandro Borges Ferreira'
