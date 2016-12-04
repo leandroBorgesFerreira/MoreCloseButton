@@ -1,14 +1,15 @@
 language: android
 jdk: oraclejdk8
 sudo: false
-
 android:
   components:
-    - platform-tools
-    - tools
-    - build-tools-25.0.0
-    - android-25
-    - extra-android-m2repository
-    
-    
+  - platform-tools
+  - tools
+  - build-tools-25.0.0
+  - android-25
+  - extra-android-m2repository
 script: ./gradlew bintrayUpload
+env:
+  global:
+  - secure: wXkJ//i9cSRHUK66jTWjp+IRWRUeitQH0ptdO2A9TOQ6aJBtIvBdxTkif0QhYYXHiksY4iDUfOngoxdd0FsZ4N4nGgM5jDG6rW48G17JSXMO0U4hKsMXfJAQufxBNhe5T39LXm2v5GIqqG6A+uZP/Xcm3FtEt2dFrlbNTxcstXvhrPdaoQ+tcqr2m0tY2KAXud8W4aHOSDaNoI6aDYFzH4E4xR2hy7/tgSOGhxz3HdFumpTso8CeeghbGugAJF7Z/Iu3ftGlt3QgWFzrWoMvQX5XfYTItKGDYYZPanonjagdiUpxqxBO3gXdqRKcTOMt669RRan74MXvvty2mzKU40A7eHgFL4ALuPz8KCEkznhgyMBKUJAOFrcgnCvs2NpdXGSMLvleQEyGizgD+JgzjOgGgZmRoy5IhLUHoFD869JmeyHeIDt7YT8fwZ5jnGUE/sNH5R3mOozWdTESx6YEgIR4uMUfWt3a/yfGQct1V0hrV/hRGFltROPyWLu/DTqEY+4Aq0X7d/POMZT+/NOaLvBxcRO6sU+wGUL0boKuBeEPQw64R9SkoECkK7SqNDaR4LWlksj0N9v5Kl8VCtskrcfpBu8RDMp7kAfcqyTgLRZ4feV19XYCcFu5vWs+x1/9EWstsPcs73jhz0KARDQciqAiUB7ON7JEEG1pb6iSrOg=
+  - secure: mCMviu4fOS41XF2YhsOkXiXK+Fu02eR4p4pxdgq3R4hkuuNjPd6GIkO48WwUsTmZhXNnH/Z/P1hL0tiVXrFe7Op4ewlaDJxoQI6bsvggixjjCHGw/ZyxhWeYglT99NUoQ1C4yWPSWPfIm03QPiVJUxZ28hPoJ5AIuqhCvfU3+9WWNlQ/8ux6EoG0LtxyBtwi4WseaXqQfxfIeWUQ0DYdBrB4ZgZME1rsoIX1vXrHlB436NRnMNFFH44cTz0dtE/vdOnLvtcOmWmZ5/59kSpd5CBBxFaVct+3OvAA9tY2gnlOla3LcJInHS2La6+eaRN2BDj1ypqSQZSbaCngw2lAA9lFM3z+6dmOg6ooS5P/VOv43VAylQ2tSQ82SkIg5fH18Qmh0WFBHNWwlcwuqOQ5NdMmZzAPH720SHET3rUAX74dMUlc9+Ujm1afEWkjxEdi5G5oZy/V0Euzs06o4kt2kjg/997bg0WIXh5QXIrigwb5DsAw8g+LTRHmgllBzYBsgFsU19UIouQBLXrxadh5qVk7+rVXjt8ztMLDPzPfA+KpVfKrihPq9nKF5X1pGIFcaSTZzaRokaDT3gA5zzz00rpeQf6faAz6XTgp/z520OdtcglAqv3XNt2zkAugvj88dLG+ZF9/TrqSi4oQkM9Evi06FiZFVtof+TUD6C/1A+E=

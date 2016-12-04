@@ -2,29 +2,58 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.jfrog.bintray'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'MoreCloseButton'
+//ext {
+//    bintrayRepo = 'maven'
+//    bintrayName = 'MoreCloseButton'
+//
+//    publishedGroupId = 'br.com.simplepass'
+//    libraryName = 'MoreCloseButton'
+//    artifact = 'moreclosebutton'
+//
+//    libraryDescription = 'A library for a custom button'
+//
+//    siteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
+//    gitUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
+//
+//    libraryVersion = '0.9.1'
+//
+//    developerId = 'leandroBorgesFerreira'
+//    developerName = 'Leandro Borges Ferreira'
+//    developerEmail = 'lehen01@gmail.com'
+//
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
 
-    publishedGroupId = 'br.com.simplepass'
-    libraryName = 'MoreCloseButton'
-    artifact = 'moreclosebutton'
+//Bintray depends on this global variable to set the library version!
+version = '0.9.2'
 
-    libraryDescription = 'A library for a custom button'
+// Configure gradle-bintray-plugin (for publishing releases)
+bintray {
+    configurations = ['archives']
 
-    siteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
-    gitUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
+    publish = true
 
-    libraryVersion = '0.9.1'
+    pkg {
+        repo = 'maven'
+        name = 'MoreCloseButton'
+        userOrg = 'br.com.simplepass'
+        licenses = ['Apache-2.0']
+        labels = ['customview', 'animation']
+        websiteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
+        issueTrackerUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton/issues'
+        vcsUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
+        publicDownloadNumbers = true
 
-    developerId = 'leandroBorgesFerreira'
-    developerName = 'Leandro Borges Ferreira'
-    developerEmail = 'lehen01@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    }
 }
+
+if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayApiKey')) {
+    bintray.user = project.bintrayUser
+    bintray.key = project.bintrayKey
+}
+
 
 android {
     compileSdkVersion 25
@@ -58,5 +87,5 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
