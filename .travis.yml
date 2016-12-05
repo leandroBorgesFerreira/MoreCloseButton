@@ -1,6 +1,12 @@
 language: android
 jdk: oraclejdk8
 sudo: false
+
+addons:
+  apt:
+    packages:
+      - lynx
+
 android:
   components:
   - platform-tools
@@ -8,7 +14,9 @@ android:
   - build-tools-25.0.0
   - android-25
   - extra-android-m2repository
-script: ./gradlew -PbintrayUser="${bintrayUser}" -PbintrayKey="${bintrayKey}" build
+script: 
+  - if [ -f /home/travis/build/leandroBorgesFerreira/MoreCLoseButton/app/build/outputs/lint-results-debug.html ]; then lynx -dump /home/travis/build/leandroBorgesFerreira/MoreCLoseButton/app/build/outputs/lint-results-debug.html; fi
+  - ./gradlew -PbintrayUser="${bintrayUser}" -PbintrayKey="${bintrayKey}" build
   bintrayUpload --stacktrace --info
 env:
   global:
