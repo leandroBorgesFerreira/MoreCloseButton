@@ -3,30 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
-//ext {
-//    bintrayRepo = 'maven'
-//    bintrayName = 'MoreCloseButton'
-//
-//    publishedGroupId = 'br.com.simplepass'
-//    libraryName = 'MoreCloseButton'
-//    artifact = 'moreclosebutton'
-//
-//    libraryDescription = 'A library for a custom button'
-//
-//    siteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
-//    gitUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
-//
-//    libraryVersion = '0.9.1'
-//
-//    developerId = 'leandroBorgesFerreira'
-//    developerName = 'Leandro Borges Ferreira'
-//    developerEmail = 'lehen01@gmail.com'
-//
-//    licenseName = 'The Apache Software License, Version 2.0'
-//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//    allLicenses = ["Apache-2.0"]
-//}
-
 //Bintray depends on this global variable to set the library version!
 version = '0.9.4'
 group = 'br.com.simplepass'
@@ -49,6 +25,10 @@ android {
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        abortonError false
     }
 }
 
