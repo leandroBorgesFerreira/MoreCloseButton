@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 //ext {
 //    bintrayRepo = 'maven'
@@ -27,33 +28,8 @@ apply plugin: 'com.jfrog.bintray'
 //}
 
 //Bintray depends on this global variable to set the library version!
-version = '0.9.2'
-
-// Configure gradle-bintray-plugin (for publishing releases)
-bintray {
-    configurations = ['archives']
-
-    publish = true
-
-    pkg {
-        repo = 'maven'
-        name = 'MoreCloseButton'
-        userOrg = 'br.com.simplepass'
-        licenses = ['Apache-2.0']
-        labels = ['customview', 'animation']
-        websiteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
-        issueTrackerUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton/issues'
-        vcsUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
-        publicDownloadNumbers = true
-
-    }
-}
-
-if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayApiKey')) {
-    bintray.user = project.bintrayUser
-    bintray.key = project.bintrayKey
-}
-
+version = '0.9.3'
+group = 'br.com.simplepass'
 
 android {
     compileSdkVersion 25
@@ -74,6 +50,65 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            name 'MoreCloseButton'
+            description 'A library for a custom button'
+            url 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
+            inceptionYear '2016'
+
+            packaging 'aar'
+            groupId 'br.com.simplepass'
+            artifactId 'moreclosebutton'
+            version '0.9.3'
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+            scm {
+                connection 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
+                url 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
+
+            }
+            developers {
+                developer {
+                    name 'Leandro Borges Ferreira'
+                }
+            }
+        }
+    }
+}
+
+// Configure gradle-bintray-plugin (for publishing releases)
+bintray {
+    configurations = ['archives']
+
+    publish = true
+
+    pkg {
+        repo = 'maven'
+        name = 'MoreCloseButton'
+        userOrg = 'lehen01'
+        licenses = ['Apache-2.0']
+        labels = ['customview', 'animation']
+        websiteUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton'
+        issueTrackerUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton/issues'
+        vcsUrl = 'https://github.com/leandroBorgesFerreira/MoreCLoseButton.git'
+        publicDownloadNumbers = true
+    }
+
+}
+
+if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
+    bintray.user = project.bintrayUser
+    bintray.key = project.bintrayKey
 }
 
 dependencies {
