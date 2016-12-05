@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/lehen01/maven/MoreCloseButton/images/download.svg) ](https://bintray.com/lehen01/maven/MoreCloseButton/_latestVersion)
+
 
 ##CloseMoreButton
 
@@ -37,7 +39,7 @@ Custom button with morph animation.
 
 ## Installation
 
-    compile 'br.com.simplepass:moreclosebutton:0.9.0'
+    compile 'br.com.simplepass:moreclosebutton:[lastestVersion]'
 
 ## Bugs and Feedback
 
